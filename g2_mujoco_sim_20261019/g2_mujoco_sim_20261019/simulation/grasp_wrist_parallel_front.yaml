@@ -1,0 +1,94 @@
+# Wrist/end-link +Z aligned with payload +X; no body roll or yaw.
+# J2=-88deg is a soft reference, not an imposed 10deg band.
+# Reproduce motion using plan_wrist_front_grasp.py (straight base approach).
+source: simulation/reference_inputs/grasp_seed/pickup.npz
+model_reference: simulation/reference_inputs/extraction
+output: simulation/outputs/grasp_wrist_parallel_front
+stage: right_grasp
+palm_rotation_in_payload:
+- - 0
+  - 0
+  - 1
+- - 1
+  - 0
+  - 0
+- - 0
+  - 1
+  - 0
+joint_reserve_rad: 0.02
+minimum_elbow_below_shoulder_m: 0.001
+right_joint2_target_deg: -88
+contact_gap_m: 0.004
+wrap_depth_m: 0.015
+max_nfev: 550
+attempts: 8
+pregrasp_backoff_m: 0.1
+joint_step_rad: 0.03
+joint_planning_reserve_m: 0.002
+joint_planning_time_s: 60.0
+joint_optimization_time_s: 5.0
+joint_shortcut_attempts: 100
+rest_search_offsets_deg:
+- 0
+- -10
+- 10
+- -20
+- 20
+- -30
+- 30
+seed_joints:
+  idx61_arm_r_joint1: -0.31395605019294515
+  idx62_arm_r_joint2: -0.9262882951374977
+  idx63_arm_r_joint3: 1.2494339804420407
+  idx64_arm_r_joint4: -2.1911122652780963
+  idx65_arm_r_joint5: 1.7865460742066528
+  idx66_arm_r_joint6: 0.9922832960638914
+  idx67_arm_r_joint7: -1.397990558057359
+  idx71_hand_r_thumb_roll_joint: 0.3783638227113001
+  idx72_hand_r_thumb_abad_joint: -0.3173535813034726
+  idx73_hand_r_thumb_mcp_joint: -0.0006064490884494365
+  idx74_hand_r_thumb_pip_joint: -0.3198609588968499
+  idx76_hand_r_index_abad_joint: 0.24664561714708957
+  idx77_hand_r_index_mcp_joint: 0.597293385845868
+  idx78_hand_r_index_pip_joint: 0.5169971909394346
+  idx80_hand_r_middle_abad_joint: 0.06002865155866827
+  idx81_hand_r_middle_mcp_joint: 0.31962926178215584
+  idx82_hand_r_middle_pip_joint: 0.25553194961479636
+  idx84_hand_r_ring_mcp_joint: 0.09873498220378567
+  idx87_hand_r_pinky_mcp_joint: 0.07893500613643739
+right_open_motor_targets:
+  idx71_hand_r_thumb_roll_joint: 0.28307367080208296
+  idx72_hand_r_thumb_abad_joint: -0.26661771800708706
+  idx73_hand_r_thumb_mcp_joint: -0.0006214861013080237
+  idx74_hand_r_thumb_pip_joint: -0.36270795700747044
+  idx76_hand_r_index_abad_joint: 0.16717074942693919
+  idx77_hand_r_index_mcp_joint: 0.7021113596429251
+  idx78_hand_r_index_pip_joint: 0.6238480286162122
+  idx80_hand_r_middle_abad_joint: 0.0662759694282591
+  idx81_hand_r_middle_mcp_joint: 0.2941065022832266
+  idx82_hand_r_middle_pip_joint: 0.2360953868089463
+  idx84_hand_r_ring_mcp_joint: 0.3164068183770374
+  idx87_hand_r_pinky_mcp_joint: 0.29896140908339597
+fit_fingers:
+- thumb
+- index
+- middle
+alignment_axis: 2
+thumb_face_sign: 1
+palm_position_reference_m:
+- -0.2586295200336969
+- -0.046686466469494314
+- -0.02132430586536439
+fixed_joint_overrides:
+  idx01_body_joint1: -0.8102330937413543
+  idx02_body_joint2: 2.2997509999397505
+  idx03_body_joint3: -1.3082218767081215
+  idx04_body_joint4: 0.0
+  idx05_body_joint5: 0.0
+contact_faces:
+  right:
+  - -x
+  - -y
+  - +y
+  - +z
+contact_vertical_edge_margin_m: 0.001

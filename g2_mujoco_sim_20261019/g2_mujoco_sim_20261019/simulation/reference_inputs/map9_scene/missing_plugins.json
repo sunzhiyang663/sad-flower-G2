@@ -1,0 +1,99 @@
+{
+  "purpose": "Vendor native ROS navigation simulation dependencies; offline scene is usable without them.",
+  "architecture": "aarch64",
+  "robot": "G2_t2_crsB_o12_t2",
+  "variant": "g02",
+  "native_binary": "/home/agi/app/bin/navigation/bin/genie-navigation",
+  "native_binary_sha256": "66ece31569d0fd33f3d62f800986752b1df468e6abed8a991de97cdc250dcd4d",
+  "required_libraries": [
+    {
+      "name": "libbehavior_tree_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libbehavior_tree_ros_node.so"
+    },
+    {
+      "name": "libcontroller_server_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libcontroller_server_ros_node.so"
+    },
+    {
+      "name": "libcostmap_2d_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libcostmap_2d_ros_node.so"
+    },
+    {
+      "name": "libdummy_tf_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libdummy_tf_ros_node.so"
+    },
+    {
+      "name": "libfake_perception_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libfake_perception_ros_node.so"
+    },
+    {
+      "name": "libisw_cart_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libisw_cart_ros_node.so"
+    },
+    {
+      "name": "libisw_cart_sim_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libisw_cart_sim_ros_node.so"
+    },
+    {
+      "name": "liblocalization_client_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/liblocalization_client_ros_node.so"
+    },
+    {
+      "name": "libmap_generator_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libmap_generator_ros_node.so"
+    },
+    {
+      "name": "libmap_service_client_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libmap_service_client_ros_node.so"
+    },
+    {
+      "name": "libperception_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libperception_ros_node.so"
+    },
+    {
+      "name": "libplanner_server_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libplanner_server_ros_node.so"
+    },
+    {
+      "name": "libpoint_cloud_visualization_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libpoint_cloud_visualization_ros_node.so"
+    },
+    {
+      "name": "libre_plan_check_server_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libre_plan_check_server_ros_node.so"
+    },
+    {
+      "name": "libremote_control_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libremote_control_ros_node.so"
+    },
+    {
+      "name": "librobot_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/librobot_ros_node.so"
+    },
+    {
+      "name": "libros2_bridge_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libros2_bridge_node.so"
+    },
+    {
+      "name": "libservo_server_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libservo_server_ros_node.so"
+    },
+    {
+      "name": "libtask_service_client_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libtask_service_client_ros_node.so"
+    },
+    {
+      "name": "libtask_service_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libtask_service_ros_node.so"
+    },
+    {
+      "name": "libtf_listener_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libtf_listener_ros_node.so"
+    },
+    {
+      "name": "libtransform_ros_node.so",
+      "expected_path": "/home/agi/app/bin/navigation/lib/libtransform_ros_node.so"
+    }
+  ],
+  "request": "Provide ROS simulation plugins and their transitive dependencies matching this installed navigation build. No online service replacement has been performed."
+}

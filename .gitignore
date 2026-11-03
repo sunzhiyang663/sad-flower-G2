@@ -1,0 +1,16 @@
+*.zip
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+**/outputs/
+**/logs/
+**/checkpoints/
+*.pth
+*.pt
+*.mp4
+.env
+*.pem
+*.key
+# MuJoCo 编译场景，单独同步服务器
+*.mjb

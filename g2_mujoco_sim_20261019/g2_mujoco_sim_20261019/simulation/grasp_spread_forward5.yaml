@@ -1,0 +1,66 @@
+reference_config: simulation/grasp_wrist_parallel_front.yaml
+output: simulation/outputs/grasp_spread_forward5
+preview_status: HAND_GEOMETRY_VALIDATED
+max_yaw_deg: 10.0
+approach_distance_m: 0.1
+open_clearance_m: 0.005
+middle_height_tolerance_m: 0.04
+closed_seed:
+- -0.2639702107268045
+- -0.05365206956758348
+- 0.008473113953287792
+- -0.03509819671846351
+- 0.1367466936800112
+- -0.23131767335604986
+- -3.0363412169467367e-05
+- -0.5052018710373226
+- 0.022780527537725512
+- 0.12897333051093626
+- 0.07827330746295247
+- 0.15709515093491913
+- 0.09387954253625347
+- 0.1150101174437312
+- 0.00015381363477129462
+- 0.0002658684784485473
+yaw_range_deg:
+- -10.0
+- 0.0
+spread_fingers: true
+desired_contact_span_m: 0.09
+fit_fingers:
+- thumb
+- index
+- middle
+- pinky
+bilateral_seed: simulation/reference_inputs/accepted_grasp/bilateral_seed.json
+station_candidates_xy_m:
+- - 0.2587996336475162
+  - 0.19065945652735716
+- - 0.25
+  - 0.19
+- - 0.26
+  - 0.19
+- - 0.27
+  - 0.18
+- - 0.27
+  - 0.2
+left_wait_offsets_world_m:
+- - 0
+  - 0
+  - -0.06
+- - 0
+  - 0
+  - -0.1
+- - -0.08
+  - 0
+  - -0.08
+- - -0.1
+  - 0.06
+  - -0.08
+- - 0
+  - 0.08
+  - -0.12
+partial_pull_m: 0.19
+preferred_right_elbow_drop_m: 0.1
+left_forward_shift_m: 0.05
+left_vertical_shift_m: -0.003

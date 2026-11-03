@@ -1,0 +1,174 @@
+# 已认可的局部抓取动作；初始状态为双臂已预摆，不包含到达预摆的运动。
+# 调整距离/目标后须重新运行 main --task spread_grasp --check-only。
+task:
+  name: spread_grasp
+spread_grasp:
+  model_reference: simulation/reference_inputs/extraction
+  source_motion: simulation/reference_inputs/accepted_grasp/motion.json
+  source_kind: approved_simulation_not_site_measurement
+  contact_faces:
+    right:
+    - -x
+    - -y
+    - +y
+    - +z
+  joint_step_rad: 0.0075
+  base_step_m: 0.0025
+  wrist_yaw_range_deg:
+  - -10
+  - 0
+  minimum_right_elbow_drop_m: 0.001
+  initial_state:
+    joints:
+      idx01_body_joint1: -0.8102330937413543
+      idx02_body_joint2: 2.2997509999397505
+      idx03_body_joint3: -1.3082218767081215
+      idx04_body_joint4: 0.0
+      idx05_body_joint5: 0.0
+      idx11_head_joint1: 0.0
+      idx12_head_joint2: 0.0
+      idx13_head_joint3: 0.0
+      idx21_arm_l_joint1: 1.09896117605988
+      idx22_arm_l_joint2: -1.7691669112345665
+      idx23_arm_l_joint3: -0.19215084431114204
+      idx24_arm_l_joint4: -1.3795022594677995
+      idx25_arm_l_joint5: -1.8391526702143628
+      idx26_arm_l_joint6: 0.19170136595402468
+      idx27_arm_l_joint7: -0.012514319486840753
+      idx61_arm_r_joint1: 0.4990955868721702
+      idx62_arm_r_joint2: 1.544677362487021
+      idx63_arm_r_joint3: 0.37218926520653867
+      idx64_arm_r_joint4: -2.474253892509361
+      idx65_arm_r_joint5: 1.6493734787701118
+      idx66_arm_r_joint6: 0.47335149466779475
+      idx67_arm_r_joint7: 0.5579835720132303
+      idx31_hand_l_thumb_roll_joint: -0.10426187659142447
+      idx32_hand_l_thumb_abad_joint: 0.31008229338795523
+      idx33_hand_l_thumb_mcp_joint: -0.6361199963960514
+      idx34_hand_l_thumb_pip_joint: -1.0168452513676673
+      idx36_hand_l_index_abad_joint: 0.0
+      idx37_hand_l_index_mcp_joint: 0.0
+      idx38_hand_l_index_pip_joint: 0.0
+      idx40_hand_l_middle_abad_joint: 0.0
+      idx41_hand_l_middle_mcp_joint: 0.0
+      idx42_hand_l_middle_pip_joint: 0.0
+      idx44_hand_l_ring_mcp_joint: 0.0
+      idx47_hand_l_pinky_mcp_joint: 0.0
+      idx71_hand_r_thumb_roll_joint: 0.043336658834751476
+      idx72_hand_r_thumb_abad_joint: -0.19375829273111944
+      idx73_hand_r_thumb_mcp_joint: -0.03259979029396087
+      idx74_hand_r_thumb_pip_joint: -0.15264704339325086
+      idx76_hand_r_index_abad_joint: -0.17211400501995963
+      idx77_hand_r_index_mcp_joint: 0.0008428608552536995
+      idx78_hand_r_index_pip_joint: 0.3645143780444472
+      idx80_hand_r_middle_abad_joint: 0.2191329866467936
+      idx81_hand_r_middle_mcp_joint: 0.24719217955846534
+      idx82_hand_r_middle_pip_joint: 0.03703803444377222
+      idx84_hand_r_ring_mcp_joint: 0.16828218866553107
+      idx87_hand_r_pinky_mcp_joint: 0.16444548570498096
+    base:
+    - - 1.0
+      - 0.0
+      - 0.0
+      - 0.2587996336475161
+    - - 0.0
+      - 1.0
+      - 0.0
+      - 0.14065945652735717
+    - - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    payload:
+    - - 0.9999999999999999
+      - 1.5599972597336332e-30
+      - 5.65530067089949e-20
+      - 0.9099999999999997
+    - - 7.711370793872695e-31
+      - 1.0
+      - 3.4056410678429107e-31
+      - -0.24999999999999994
+    - - -1.6028732816209295e-19
+      - -2.88035828154522e-32
+      - 0.9999999999999999
+      - 0.8874999999999998
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+  steps:
+  - id: right_approach
+    type: direct_drive
+    distance_m: 0.1
+    note: 双臂已预摆 → 底盘直进，右手保持张开
+  - id: right_grasp
+    type: hand
+    side: right
+    targets:
+      idx71_hand_r_thumb_roll_joint: 0.09089883110458902
+      idx72_hand_r_thumb_abad_joint: -0.3969414825845277
+      idx73_hand_r_thumb_mcp_joint: -0.060945835862860454
+      idx74_hand_r_thumb_pip_joint: -0.24448673120969508
+      idx76_hand_r_index_abad_joint: -0.21507206344714946
+      idx77_hand_r_index_mcp_joint: 0.0011275802539351652
+      idx78_hand_r_index_pip_joint: 0.44673417438351537
+      idx80_hand_r_middle_abad_joint: 0.15133848657925558
+      idx81_hand_r_middle_mcp_joint: 0.2904446517892664
+      idx82_hand_r_middle_pip_joint: 0.04345184248466674
+      idx84_hand_r_ring_mcp_joint: 0.20190790370325096
+      idx87_hand_r_pinky_mcp_joint: 0.1968848573102558
+    note: 靠近壳体后，右手手指闭合
+  - id: partial_pull
+    type: direct_drive
+    distance_m: -0.19
+    note: 右手先拽出，底盘直退 19 cm
+  - id: left_open
+    type: hand
+    side: left
+    targets:
+      idx31_hand_l_thumb_roll_joint: -1.3831380485385125e-11
+      idx32_hand_l_thumb_abad_joint: 8.070028656437245e-08
+      idx33_hand_l_thumb_mcp_joint: -0.6506881986159038
+      idx34_hand_l_thumb_pip_joint: -1.01486210594535
+      idx36_hand_l_index_abad_joint: 0.0
+      idx37_hand_l_index_mcp_joint: 9.99999999999322e-09
+      idx38_hand_l_index_pip_joint: 9.99999999999322e-09
+      idx40_hand_l_middle_abad_joint: 0.0
+      idx41_hand_l_middle_mcp_joint: 9.99999999999322e-09
+      idx42_hand_l_middle_pip_joint: 9.99999999999322e-09
+      idx44_hand_l_ring_mcp_joint: 9.99999999999322e-09
+      idx47_hand_l_pinky_mcp_joint: 9.99999999999322e-09
+    note: 左手在下方打开，准备接入
+  - id: left_entry
+    type: arm_joint
+    side: left
+    targets:
+      idx21_arm_l_joint1: 0.6439016533137736
+      idx22_arm_l_joint2: -2.00728644156369
+      idx23_arm_l_joint3: 0.08323075276881281
+      idx24_arm_l_joint4: -1.130535667713085
+      idx25_arm_l_joint5: -2.3533322543015776
+      idx26_arm_l_joint6: -0.054869132418147476
+      idx27_arm_l_joint7: -0.4615469578338772
+    note: 右手保持，左手从下方接入
+  - id: left_grasp
+    type: hand
+    side: left
+    targets:
+      idx31_hand_l_thumb_roll_joint: -0.10426187659142447
+      idx32_hand_l_thumb_abad_joint: 0.31008229338795523
+      idx33_hand_l_thumb_mcp_joint: -0.6361199963960514
+      idx34_hand_l_thumb_pip_joint: -1.0168452513676673
+      idx36_hand_l_index_abad_joint: 0.0
+      idx37_hand_l_index_mcp_joint: 0.20931956197989124
+      idx38_hand_l_index_pip_joint: 0.49312672269343255
+      idx40_hand_l_middle_abad_joint: 0.0
+      idx41_hand_l_middle_mcp_joint: 0.25
+      idx42_hand_l_middle_pip_joint: 0.5
+      idx44_hand_l_ring_mcp_joint: 0.3
+      idx47_hand_l_pinky_mcp_joint: 0.3
+    note: 左手闭合，双手形成托抓构型

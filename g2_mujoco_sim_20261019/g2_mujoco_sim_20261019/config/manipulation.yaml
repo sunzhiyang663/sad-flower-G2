@@ -1,0 +1,89 @@
+manipulation:
+  poses:
+    default_pose:
+      waist:
+        joint_names:
+        - idx01_body_joint1
+        - idx02_body_joint2
+        - idx03_body_joint3
+        - idx04_body_joint4
+        - idx05_body_joint5
+        joints:
+        - -0.8640697653126621
+        - 1.4346203802606283
+        - -0.6311332743308817
+        - 0.0
+        - 0.0
+        velocities:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+      neck:
+        joint_names:
+        - idx11_head_joint1
+        - idx12_head_joint2
+        - idx13_head_joint3
+        joints:
+        - 0.0
+        - 0.0
+        - 0.0
+        velocities:
+        - 0.0
+        - 0.0
+        - 0.0
+      left_arm:
+        joint_names:
+        - idx21_arm_l_joint1
+        - idx22_arm_l_joint2
+        - idx23_arm_l_joint3
+        - idx24_arm_l_joint4
+        - idx25_arm_l_joint5
+        - idx26_arm_l_joint6
+        - idx27_arm_l_joint7
+        joints:
+        - 1.732443746797063
+        - -1.1629018471274255
+        - -1.5920278193217243
+        - -1.792381529396464
+        - -0.4210899501840119
+        - -0.000714978857853573
+        - 0.00039739689786162386
+        velocities:
+        - 0.0
+        - -0.0
+        - 0.0
+        - 0.0
+        - -0.0010471975511965978
+        - -0.0
+        - -0.0
+      right_arm:
+        joint_names:
+        - idx61_arm_r_joint1
+        - idx62_arm_r_joint2
+        - idx63_arm_r_joint3
+        - idx64_arm_r_joint4
+        - idx65_arm_r_joint5
+        - idx66_arm_r_joint6
+        - idx67_arm_r_joint7
+        joints:
+        - -1.7326600620566044
+        - -1.1485545328078144
+        - 1.600054613478834
+        - -1.79993902130628
+        - 0.4201513456894244
+        - 0.0047603738169057375
+        - -0.013514610425770606
+        velocities:
+        - 0.0
+        - 0.0
+        - 0.0
+        - -0.0
+        - 0.0
+        - 0.0
+        - -0.0
+      timestamp_ns: 1790172445642285568
+      recording_scope: upper-body
+      recorded_at: '2026-09-23T22:07:25.905855+08:00'
+      source: get_joint_states.motor_position/motor_velocity

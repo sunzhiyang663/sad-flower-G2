@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "nq": 68,
+  "ngeom": 11990,
+  "maximum_absolute_differences": {
+    "geom_type": 0.0,
+    "geom_size": 2.1000000000048757e-07,
+    "geom_pos": 4.3999999999044803e-07,
+    "geom_quat": 4.1783264659311925e-07,
+    "geom_bodyid": 0.0,
+    "geom_group": 0.0,
+    "geom_contype": 0.0,
+    "geom_conaffinity": 0.0,
+    "body_pos": 0.0,
+    "body_quat": 0.0,
+    "jnt_range": 0.0
+  },
+  "note": "MJCF numeric formatting can round floats. Recorded MJB and trajectories remain the reference."
+}

@@ -1,0 +1,67 @@
+# Offline scene only. Guide points are robot poses, not furniture centres.
+snapshot: outputs/debug/map9_view
+output: simulation/reference_inputs/map9_scene
+rack_reference: simulation/reference_inputs/rack
+carry_reference: simulation/reference_inputs/extraction
+work_bounds_xy_m: [-4.0, 13.5, 1.5, 17.0]
+base_height_m: 0.05  # same assumption as extraction preview
+table:
+  size_m: [1.20, 0.80, 0.75]  # user measurement, top surface at 0.75 m
+  guide_ids: [1, 5]
+  centre_forward_m: 1.10  # ASSUMED: front edge 0.70 m from base origin
+  top_thickness_m: 0.04  # visual modelling assumption
+cleanup:
+  confirmed_by_user: true
+  bounds_xy_m: [2.70, 4.65, 11.85, 13.25]
+  height_range_m: [0.06, 1.25]
+  # Only occupied cells belonging to these isolated components are cleared.
+  component_min_cells: 2
+  component_max_cells: 100
+cloud:
+  voxel_m: 0.16
+  height_range_m: [0.08, 2.55]
+  floor_normal_offset_search_m: [-0.70, -0.10]
+  floor_histogram_bin_m: 0.02
+lidar:
+  front_extrinsic: assets/sensors/extrinsic_base_T_chassis_front_lidar.json
+  back_extrinsic: assets/sensors/extrinsic_base_T_chassis_back_lidar.json
+  azimuth_samples: 720
+  elevation_samples: 80
+  elevation_deg: [-8.0, 55.0]  # illustrative angular raster, NOT Livox scan pattern
+  max_range_m: 10.0
+  robot_occlusion: false  # ideal post-self-filter sensor; installed extrinsics not verified for this URDF
+payload:
+  size_m: [0.285, 0.075, 0.215]
+  filter_margin_m: 0.005
+  conservative_filter_margin_m: 0.0  # offline comparison: retain the external 5mm band
+  filter_numeric_epsilon_m: 0.000001  # float32 boundary tolerance, not sensor uncertainty
+  collision_margin_m: 0.02
+offline_audit:
+  chassis_margin_m: 0.02
+  translation_step_m: 0.025
+  rotation_step_rad: 0.025
+  clearance_cap_m: 0.10
+  scan_spacing_m: 1.0
+  scan_rotation_spacing_rad: 0.35
+  filter_margins_m: [0.0, 0.002, 0.005, 0.01, 0.02]
+  pose_translation_errors_m: [0.0, 0.005, 0.01, 0.02]
+  pose_rotation_errors_deg: [1.0, 3.0]
+  obstacle_height_range_m: [0.08, 1.50]  # illustrative projection, not native costmap
+carry_demo:
+  output: simulation/outputs/map9_carry_demo
+  required_clearance_m: 0.003  # same scale as the accepted extraction geometry check
+  swept_voxel_cleanup_distance_m: 0.02
+  cleanup_only_grid_free_voxels: true
+  translation_speed_m_s: 0.45  # playback timing only; not a chassis command
+  angular_speed_rad_s: 0.45
+  hold_s: 1.5
+  fps: 12
+  video_size: [1280, 720]
+  sensor_sample_spacing_m: 2.0
+native_navigation:
+  root: /home/agi/app/bin/navigation
+  robot_description: assets/robot/description
+  ros_domain_id: 197
+  start_guide_id: 4
+  goal_guide_ids: [1, 5]
+  planner_id: GridBased

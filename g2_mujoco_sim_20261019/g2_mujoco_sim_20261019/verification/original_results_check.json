@@ -1,0 +1,253 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G1_video.json",
+      "sha256": "9ec4b3caec8f166ae93a1d9ee6af4afdd49d6ec7e68c8b2569b96475ceaa0d4a"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_left.yaml",
+      "sha256": "cf390e0c9e3d655c35ab30beddb61c94a6f16bb0925ab30742633f478df51239"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G1_detection.png",
+      "sha256": "8c01506833e77bb532774b612a4ae9acc6ef89deb80529af755f559b4efbdc7e"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/validation.json",
+      "sha256": "6b02642d53d49fc657d0afd17cf7e12da45d3a6b360673490615642af1bd7b1b"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/left_park_joints.optimization.json",
+      "sha256": "addd63ec009f0839b16f260711902168e795a60f68e8935de5164c7507636a6b"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/route_G4_G1.npz",
+      "sha256": "59f0b46e01d3189db0aba1bef2d72845d829b47b20c14e5b159530cc012a53f7"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/left_park_joints.yaml",
+      "sha256": "31ba4e5d5cd593513451fa569800f9723c553d5c1b4827beabc342858c883e38"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/grasp_front_land_closeup.mp4",
+      "sha256": "4716cc1250e6b21844ba8fc34abb89f43aac7d20b93d0ffde95d99f1625711df"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_right.yaml",
+      "sha256": "72a2712edb68e1ccaa4c652ff442d8c04541da1cf933d1fe30ce040e1de984ca"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/default_to_preposition_right.yaml",
+      "sha256": "c2f1a5f51b3b302ca2db5b71d904c99746593f36eeaaa73d45c59a4f81c9788c"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/lower_body.yaml",
+      "sha256": "12df3d9de67b0c192855b64a48109d10b749d45db50a84b8805f1ba5e6c7902b"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/state.npz",
+      "sha256": "92c5c7ab801ac3aad789fb6d1b6319bbeff2354e0ab088340f38396780ade04e"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/cloud_cleanup.json",
+      "sha256": "fa6a56431eef6445f043fd48a897a99a17e94b6c3036adc0cf84b2701c2e9a51"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/front_land_closeup.png",
+      "sha256": "cbabcb36b4661313f99798bc6a6ff2eae5c5dd70bacedf93096de4294d954a01"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/right_arm_push_cartesian.json",
+      "sha256": "da51f1d6b26aa8395f04b9bcde28200951925461ba88abf575cd98cdd5c36ef4"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G5_full_clearances.npz",
+      "sha256": "3d178eaa2f56917441a24ae4f4d2d1a11525454c559fd12b35efabd7a5800816"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/placement_retract_state.yaml",
+      "sha256": "d3e0a4d5746b81f6db3bae1e22aad7a132674be62bec6fdecbc956a0562717c4"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/default_to_preposition_right.optimization.json",
+      "sha256": "b324887801881a79f814f5207b9ed376fbda254a0dc36272cf435ea7f2146584"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/pickup.npz",
+      "sha256": "7edb979a034c12759d1f24d64c5d76ccc66d8e7499c70a86ce9aafd8304bd186"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G5_detection.png",
+      "sha256": "9b124f9a7488df982ed9f91929b86191d1a9d40ca29fd52d0a9f662e658bf24a"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/right_withdraw_cartesian.json",
+      "sha256": "a00da14eee99caa2d1fa9b30ff50b593f6954da7cf64dab2589227eab9bd3658"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G5_video.json",
+      "sha256": "d1322370f53d027c7b7575af7b526b10a97015d2ca40fee4f96e2229888400cc"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/workzone_cleanup.json",
+      "sha256": "a81e421d277fabd57e9aa77812bafaa1148dccbc4bec2cdb7628b2a4ed223c20"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_right.optimization.json",
+      "sha256": "aa27ef5b99815db490535ed0c3117e00aa8d7bc234a0a2ef22d7dc766484f1d6"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/lower_body.optimization.json",
+      "sha256": "056880833b219e21ed096d926c25ac2c4a510a4d0362d554ce8222c3066f8465"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/wrap_contact_audit.json",
+      "sha256": "e13ce85a5f1af40f0b43ce42c18df02d692ba61fc6a2f7cbf9998dfdda066715"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_body.optimization.json",
+      "sha256": "5a6d7a321943e891c5eb8c6a5400b82839a87b0c0eda58e613bfa7fe19e50c97"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/default_to_preposition_left.optimization.json",
+      "sha256": "ace153bcefcc7124ad7d4cbd07f4fc424793974922b4e133570ecc3e2a6d9052"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/paired_table_hover_cartesian.json",
+      "sha256": "0523184f17af1692f8db0cfd2f6ccfd9fd733d32160eca3effd4a97f26b62a8b"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/closeup_video.json",
+      "sha256": "8a612d481f857c68a48b48971ce7f4c8272a77d82b0c3462e390be49f5ed9064"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G1_full_clearances.npz",
+      "sha256": "901f538cc75e4fe22d3c634cf079cf6ce8b8155ace79ee2c962e89dfa28d55ce"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/preposition_audit.json",
+      "sha256": "012aec4bdba304fb42549a7d7c7b2d26216a8858efaf3e2a03d3c205b92ee1b4"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_body.yaml",
+      "sha256": "0d7e0af448b26518ee7c87fb11759d5a372bd83cdba68ab7d3bc4af6f3bdc4c6"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/local_motion_audit.json",
+      "sha256": "e9fa7bd5613d98686ea414d8f93f326f0735fd1866c9011dfb494d190b90c0ea"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/reset_left.optimization.json",
+      "sha256": "72c2de1a73de73c89b7e07b70e72c61f78aa587eb7a9c60790d8c5441bd00002"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/left_drop_cartesian.json",
+      "sha256": "0f461a8f5cb9b0aad92ee939a2f382280d068611f61c09ce2c9eec9811ea45e1"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/completion.json",
+      "sha256": "dc1043b36218de475f48dae78e6b59272a7aae4d2d8db564ce56bea8a4fd8668"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/route_G6_G4.npz",
+      "sha256": "fb8710d580d92174942123b9d704cb25ad9ecedea6df662ec6b4171291fbc691"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G1_placed.png",
+      "sha256": "3342dbc18fe4309559e2b46fcb9ffc205150f8dcd4c71fe8bb8040a64490b1cc"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/placement.npz",
+      "sha256": "24ecc5e10ceb17cadc9f1baa0cf5a27e7aedc6c06a5e15a6e08f4937b94f90ae"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/manipulation.json",
+      "sha256": "e2e32d44bb09f4f54e1153f94e2d9a033bd6ac7e8f5ac12c792c6c8c936c0e20"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/left_withdraw_cartesian.json",
+      "sha256": "cc1b6d71e5953101b9cfb5769f51dad845833d743a42c2d4b0084c9cae89f61d"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/support_audit.json",
+      "sha256": "13622f5bf7faf7a163a2a17edd1ccef09dc307b15fa735a589bb12bf048a0d5c"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/scene.mjb",
+      "sha256": "356d6051059d952f9b5266a43ec77d919dacfd1b703045920f4a45b9c80f4fe2"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G6_G4_G5_full_task.mp4",
+      "sha256": "e7f3faaff18575157ca9b8097a633da83e40f585bec06287e88ae847faa78bc4"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G6_G4_G1_full_task.mp4",
+      "sha256": "430ae0a22d7cabab556ce741448979465059e60b6700d765b06427c41ed241b4"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/assumed_camera_observation.yaml",
+      "sha256": "33ddc06f92fb5253d541ba3705fdaa6f5b24a99b7f23537ce7703c386581ef8b"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/route_G4_G5.npz",
+      "sha256": "5198f3927740112ad6266f55bdf91bab65b0481680d7c81c9e425fa5634c38df"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/pickup_profile.json",
+      "sha256": "406720674b105ccc269b50701d2ced90e179dae870ccacbcbbe9d72457940f98"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/G5_placed.png",
+      "sha256": "b7f13a861db79836741278c7d9729db8a4208e807b7017fc94e9cff9b620a984"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/front_land_cartesian.json",
+      "sha256": "d662096b99c8a2596e83c4a88df5c4e538233b6e750b80bbba776d9f418d641f"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/default_to_preposition_left.yaml",
+      "sha256": "0d632a3d52c6d7fa691c2ca801eeb520457bfda785df025c2979f5766703599a"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/vehicle_routes.json",
+      "sha256": "090ef5bb183b839a1c88ada1ceb802a7f388931643c21babfd3729ef62f4fd5c"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/front_landing.json",
+      "sha256": "58be440ff3b758799f895875616454ba5f761e8f101d641befde84be9369090c"
+    },
+    {
+      "path": "simulation/outputs/map9_spread_forward5_full/diagnostics/placement_failure_before_success.json",
+      "sha256": "2c6efd829834809147134004e578815b4c21469215e3e43f61a8ac6f9d233b74"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/spread_bilateral_grasp.mp4",
+      "sha256": "ceb8eca6a31e39f07a8009b11c0e2a4e0b2378026b00c195fc16e321a0dc46c0"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/motion.json",
+      "sha256": "8cf765211150f4bd4ca8c6e367289cee4a02676d4cdb5d09f6445e7f316c03e7"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/preview.json",
+      "sha256": "dd826b5b3ca06c2c89ff1f14c59419f897b66dcdf64fc411dbaef44838b5471a"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/paired_grasp_fullbody.png",
+      "sha256": "4e35b4c96591e5cad3589eb895266f5e4db6e5153a70b21ead3320e02cf588ea"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/right_grasp_fullbody.png",
+      "sha256": "aeb1a1f3a3e12daacb954514759246129f807311bc83929a038a4eae4e58ab9b"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/bilateral_final_ik.json",
+      "sha256": "e081b06df2c27bd174c9c2f802950e6f778da7acf7d3a9a5ccac0825ceb8dfaf"
+    },
+    {
+      "path": "simulation/outputs/grasp_spread_forward5/motion_audit.json",
+      "sha256": "f68ec22ce7a0262c3b50c3c80446491d9219f84464eb2a2684a504a0f9c5464d"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "kind": "sim_grasp_kinematics_constants",
+  "note": "由仿真抓握解提取；不是实测标定。T_O_H 是电池系下的掌心(palm)位姿，需经 T_hand_end 才能变成 arm_*_end_link 目标。",
+  "source": {
+    "session_json": "/home/gzy/agibot/dexterous_hand/session.json",
+    "session_sha256": "79141824856aaf23d7e844aabab624ed3760f4669ae54bd3798bd29ac93fb02e",
+    "session_kind": "bimanual_dynamic_debugger_session",
+    "session_schema_version": 1,
+    "candidate_id": "SHELF-V3-USER-UPRIGHT",
+    "origin_source_file": "/home/gescerk/omnihand_pro/omnihand_pro_2025/o12_hand_description-o12_t3/battery_grasp_output/7xin/session.json",
+    "origin_scene_file": "session.scene.xml",
+    "origin_mjcf_sha256": {
+      "assets/MJCF/omnihand_pro_left.xml": "5d901f0a249977f7cd0fbf9399111959e85bcb38427cfde52a43d6c26fd746d3",
+      "assets/MJCF/omnihand_pro_right.xml": "7d8b61cef31733b6b7123cdc90d6090594c0bc3251cbdb073258acb83beb4726",
+      "assets/MJCF/omnihand_pro_asset.xml": "0c41c5d27e8490fde254248991ccbd6a2192d255057e37faec8a707f7c2b631e",
+      "assets/MJCF/omnihand_pro_right_mocap.xml": "49405a92519ce70d49f45c62dd86a90b849293fbfc10914180da59d03e9e40d2",
+      "assets/MJCF/omnihand_pro_left_mocap.xml": "fff2b0a660371d8918128bf41364fdec646563f14b98adc02ba4fdb3818315f2"
+    },
+    "origin_mjcf_present_on_this_machine": false
+  },
+  "provenance_flags": {
+    "geometric_only": true,
+    "status": "unvalidated",
+    "full_grasp_verified": false,
+    "dynamics_tested": "unmeasured shelf; long axis X; front edge x=0; extraction -X; partial pull 200mm",
+    "pre_equals_grasp": {
+      "left": true,
+      "right": true
+    },
+    "pre_equals_grasp_meaning": "本份副本把 PRE/GRASP 都初始化为末态，预抓取/接近位姿在本数据中不可恢复"
+  },
+  "grasp": {
+    "mode": "end_palm_and_bottom_palm_each_with_opposing_broad_face_fingers",
+    "metadata": {
+      "end_face": "-x",
+      "end_height_m": 0.015,
+      "bottom_lateral_m": 0.03,
+      "supersedes": "SB family: broad-face扶持 did not meet user's wrapping requirement",
+      "geometric_only": true,
+      "status": "unvalidated"
+    },
+    "stems": [
+      "thumb_roll",
+      "thumb_abad",
+      "thumb_mcp",
+      "thumb_pip",
+      "index_abad",
+      "index_mcp",
+      "index_pip",
+      "middle_abad",
+      "middle_mcp",
+      "middle_pip",
+      "ring_mcp",
+      "pinky_mcp"
+    ],
+    "stems_source": "dexterous_hand/grasp_debugger_core.py:17",
+    "battery_size_m": [
+      0.285,
+      0.075,
+      0.215
+    ],
+    "battery_axes": [
+      "width_between_hands",
+      "thickness",
+      "height"
+    ],
+    "hands": {
+      "left": {
+        "role": "bottom_wrap",
+        "target_face": "-z",
+        "allowed_contact_faces": [
+          "-z",
+          "-y",
+          "+y"
+        ],
+        "finger_wrap_depth_requirement_m": 0.02,
+        "T_O_H": [
+          [
+            0.03424781926314432,
+            -0.9949775577290828,
+            -0.09405714481734462,
+            -0.0032717938650885306
+          ],
+          [
+            -0.00323173518971764,
+            0.09400160846308454,
+            -0.9955668001164057,
+            0.15147113639926585
+          ],
+          [
+            0.9994081462362537,
+            0.03439995961952405,
+            3.846110796192413e-06,
+            -0.12831216128687767
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "q_grasp_actuator_rad_by_name": {
+          "L_thumb_roll_actuator": -0.629,
+          "L_thumb_abad_actuator": 0.837,
+          "L_thumb_mcp_actuator": -0.102,
+          "L_thumb_pip_actuator": -0.103,
+          "L_index_abad_actuator": 0.001,
+          "L_index_mcp_actuator": 0.152,
+          "L_index_pip_actuator": 0.222,
+          "L_middle_abad_actuator": 0.004,
+          "L_middle_mcp_actuator": 0.09,
+          "L_middle_pip_actuator": 0.358,
+          "L_ring_mcp_actuator": 0.14,
+          "L_pinky_mcp_actuator": 0.13187042950638794
+        },
+        "q_grasp_actuator_rad": [
+          -0.629,
+          0.837,
+          -0.102,
+          -0.103,
+          0.001,
+          0.152,
+          0.222,
+          0.004,
+          0.09,
+          0.358,
+          0.14,
+          0.13187042950638794
+        ],
+        "q_pre_actuator_rad": [
+          -0.629,
+          0.837,
+          -0.102,
+          -0.103,
+          0.001,
+          0.152,
+          0.222,
+          0.004,
+          0.09,
+          0.358,
+          0.14,
+          0.13187042950638794
+        ]
+      },
+      "right": {
+        "role": "end_wrap",
+        "target_face": "-x",
+        "allowed_contact_faces": [
+          "-x",
+          "-y",
+          "+y"
+        ],
+        "finger_wrap_depth_requirement_m": 0.02,
+        "T_O_H": [
+          [
+            0.8538347720322839,
+            0.3247200361915103,
+            0.40684527791823266,
+            -0.23793068770814202
+          ],
+          [
+            0.48867427516668105,
+            -0.23074448045201856,
+            -0.8414002837717905,
+            0.07733145160453939
+          ],
+          [
+            -0.17934222832032298,
+            0.9172316407738639,
+            -0.35569998918244133,
+            0.0485798912667309
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "q_grasp_actuator_rad_by_name": {
+          "R_thumb_roll_actuator": 0.6149398163500608,
+          "R_thumb_abad_actuator": -0.8249018974426562,
+          "R_thumb_mcp_actuator": -0.13,
+          "R_thumb_pip_actuator": -0.14650361294151756,
+          "R_index_abad_actuator": 0.19817875821314368,
+          "R_index_mcp_actuator": 0.49122556883053387,
+          "R_index_pip_actuator": 0.5319961342693025,
+          "R_middle_abad_actuator": 0.053592714186335606,
+          "R_middle_mcp_actuator": 0.48349823341989784,
+          "R_middle_pip_actuator": 0.549960716045392,
+          "R_ring_mcp_actuator": 0.46608823585689646,
+          "R_pinky_mcp_actuator": 0.3723947308038701
+        },
+        "q_grasp_actuator_rad": [
+          0.6149398163500608,
+          -0.8249018974426562,
+          -0.13,
+          -0.14650361294151756,
+          0.19817875821314368,
+          0.49122556883053387,
+          0.5319961342693025,
+          0.053592714186335606,
+          0.48349823341989784,
+          0.549960716045392,
+          0.46608823585689646,
+          0.3723947308038701
+        ],
+        "q_pre_actuator_rad": [
+          0.6149398163500608,
+          -0.8249018974426562,
+          -0.13,
+          -0.14650361294151756,
+          0.19817875821314368,
+          0.49122556883053387,
+          0.5319961342693025,
+          0.053592714186335606,
+          0.48349823341989784,
+          0.549960716045392,
+          0.46608823585689646,
+          0.3723947308038701
+        ]
+      }
+    }
+  }
+}

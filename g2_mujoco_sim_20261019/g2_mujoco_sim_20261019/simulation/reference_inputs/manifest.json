@@ -1,0 +1,95 @@
+{
+  "purpose": "Minimal inputs retained when old simulation results were deleted; no historical videos.",
+  "files": [
+    {
+      "old_path": "simulation/outputs/map9_navigation/scene.mjb",
+      "path": "simulation/reference_inputs/map9_scene/scene.mjb",
+      "sha256": "c056ed3aa2160f1edbedcfa07a95ddc93f9db2e06c280f7f17a8242e6975d218",
+      "bytes": 182159757
+    },
+    {
+      "old_path": "simulation/outputs/map9_navigation/state.npz",
+      "path": "simulation/reference_inputs/map9_scene/state.npz",
+      "sha256": "41ee50a52a1917d9c8126bdffcfa27e6c261f0cedb69e5630ec44e3cf66fa28a",
+      "bytes": 1236
+    },
+    {
+      "old_path": "simulation/outputs/map9_navigation/scene_map.npz",
+      "path": "simulation/reference_inputs/map9_scene/scene_map.npz",
+      "sha256": "42acadecf3a10215b47b9461667be115f1a694d0f1cc615feb0d5e4ff716cb0e",
+      "bytes": 2710719
+    },
+    {
+      "old_path": "simulation/outputs/map9_navigation/native_filtered.yaml",
+      "path": "simulation/reference_inputs/map9_scene/native_filtered.yaml",
+      "sha256": "8c51fa4fb39db29c41189783e2aa2e31dd54112b8685969bc2352766e9909607",
+      "bytes": 128564
+    },
+    {
+      "old_path": "simulation/outputs/map9_navigation/missing_plugins.json",
+      "path": "simulation/reference_inputs/map9_scene/missing_plugins.json",
+      "sha256": "26818c295f0885deca63badbd2f9b2cf47c88245f09d2b34911508cccce96b89",
+      "bytes": 3782
+    },
+    {
+      "old_path": "simulation/outputs/extraction_83cm_lower_left_first_backoff10cm_right10cm_full/source_inputs.yaml",
+      "path": "simulation/reference_inputs/rack/source_inputs.yaml",
+      "sha256": "113a7c134b697336242f38e9b455cac672e169b95d266b5c71c276965561d400",
+      "bytes": 5823
+    },
+    {
+      "old_path": "simulation/outputs/extraction_83cm_paired_support_full/source_plan.json",
+      "path": "simulation/reference_inputs/extraction/source_plan.json",
+      "sha256": "bacc11bd30450c6943eaeaf91731784e98c8ffa0682cdbeb7778b6e4020fa3e7",
+      "bytes": 1431187
+    },
+    {
+      "old_path": "simulation/outputs/extraction_83cm_paired_support_full/source_inputs.yaml",
+      "path": "simulation/reference_inputs/extraction/source_inputs.yaml",
+      "sha256": "88caf352d56ddb25ad095ab06399bae91918e129fa65478d3c2e9380ad74cadd",
+      "bytes": 5848
+    },
+    {
+      "old_path": "simulation/outputs/extraction_83cm_paired_support_full/replay.npz",
+      "path": "simulation/reference_inputs/extraction/replay.npz",
+      "sha256": "62fe1be527098983456443941391d70d97cbf749990e08cdf3ad12669e7442fc",
+      "bytes": 9193
+    },
+    {
+      "old_path": "simulation/outputs/map9_cross_grip_front_land/pickup.npz",
+      "path": "simulation/reference_inputs/grasp_seed/pickup.npz",
+      "sha256": "a361e3ab4efa2f5f54400ec3fe530800f369dcb0d9b922df8455667a14127e86",
+      "bytes": 38645
+    },
+    {
+      "old_path": "simulation/outputs/map9_wrist_short_rotation/pickup.npz",
+      "path": "simulation/reference_inputs/travel_baseline/pickup.npz",
+      "sha256": "19ef09dee72310d2b3391c5a611c4c6c5a7a0432a5cb37b5ca84d44e5a79d21f",
+      "bytes": 50435
+    },
+    {
+      "old_path": "simulation/outputs/grasp_spread_bilateral/preview.json",
+      "path": "simulation/reference_inputs/accepted_grasp/preview.json",
+      "sha256": "dd826b5b3ca06c2c89ff1f14c59419f897b66dcdf64fc411dbaef44838b5471a",
+      "bytes": 9703
+    },
+    {
+      "old_path": "simulation/outputs/grasp_spread_bilateral/bilateral_final_ik.json",
+      "path": "simulation/reference_inputs/accepted_grasp/bilateral_final_ik.json",
+      "sha256": "bd0dec514d5f89a6e46c911262b2e602d22546eebaafb40375ad4d70e342023a",
+      "bytes": 8994
+    },
+    {
+      "old_path": "simulation/outputs/grasp_spread_bilateral/motion.json",
+      "path": "simulation/reference_inputs/accepted_grasp/motion.json",
+      "sha256": "4dbea2a32a85f813a896704a19126ae3a85f74728b9fc14cf4630fd1e7f25948",
+      "bytes": 865911
+    },
+    {
+      "old_path": "simulation/outputs/grasp_spread_bilateral/bilateral_seed.json",
+      "path": "simulation/reference_inputs/accepted_grasp/bilateral_seed.json",
+      "sha256": "3fe4c392c5e12def1a7cdf383492f7d8a34c639a619cb1312dc0f8128ae3bd6f",
+      "bytes": 3016
+    }
+  ]
+}

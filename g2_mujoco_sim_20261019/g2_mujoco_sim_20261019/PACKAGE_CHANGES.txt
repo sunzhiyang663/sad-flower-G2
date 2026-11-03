@@ -1,0 +1,2 @@
+仅交付副本修改：模型/雷达路径改为包内相对路径；native_filtered仅保留离线footprint；渲染字体随包；ARM OSMesa库增加架构判断；build_map9_scene增加export_only返回；其余本机源文件未改。当前simulation/outputs文件保持原字节。reference_inputs/manifest.json是迁移前历史哈希，包内以MANIFEST.sha256为准。
+config/manipulation.yaml仅保留本轮使用的default_pose，未包含其他实机示教姿态。添加tools/replay.py、check_package.py、render_check.py、export_scene_xml.py作为独立交付入口。

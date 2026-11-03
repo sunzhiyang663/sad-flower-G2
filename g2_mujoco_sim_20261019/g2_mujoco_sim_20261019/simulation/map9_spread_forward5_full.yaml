@@ -1,0 +1,188 @@
+output: simulation/outputs/map9_spread_forward5_full
+start_guide_id: 6
+goal_guide_ids:
+- 1
+- 5
+vehicle:
+  planner: ompl
+  turning_radius_m: 0.6
+  sample_step_m: 0.02
+  planning_time_s: 90.0
+  simplify_time_s: 8.0
+  speed_m_s: 0.45
+  reverse_speed_m_s: 0.25
+  max_yaw_speed_rad_s: 0.45
+  switch_gear_hold_s: 0.5
+  random_seed: 2512
+  rack_exit_map_offset_m:
+  - 0.6
+  - -1.2
+  rack_exit_yaw_rad: -1.5707963267948966
+cloud:
+  retain_height_m:
+  - 0.08
+  - 1.8
+  keep_only_occupied_columns: true
+motion:
+  joint_step_rad: 0.02
+  joint_planning_reserve_m: 0.002
+  joint_planning_time_s: 180.0
+  joint_optimization_time_s: 8.0
+  joint_shortcut_attempts: 160
+  joint_speed_rad_s: 0.6
+  minimum_sample_duration_s: 0.02
+  placement_hover_m: 0.001
+  placement_allow_waist: false
+  placement_solve_position_tolerance_m: 0.0005
+  placement_edge_gap_m: 0.01
+  hand_withdraw_m: 0.05
+  support_hand_lateral_withdraw_m: 0.25
+  support_hand_drop_m: 0.025
+  grasp_hand_withdraw_m: 0.12
+  contact_tolerance_m: 0.002
+  min_navigation_clearance_m: 0.003
+  workzone_voxel_cleanup_distance_m: 0.02
+  preposition:
+    station_offset_m:
+    - 0.1
+    - -0.05
+    - 0
+    preapproach_backoff_m: 0.4
+    base_pull_m: 0.25
+    left_wait_offset_m:
+    - -0.05
+    - 0.15
+    - -0.04
+    left_entry_gap_m: 0.015
+    lift_m: 0.1
+    mirror_right_grasp: false
+    left_palm_in_payload:
+    - - -0.0012065712509564638
+      - -0.9999953476909986
+      - 0.0028015678066537985
+      - -0.055
+    - - 0.39555072399204694
+      - -0.0030503436460362333
+      - -0.9184390671966262
+      - 0.10794494200888885
+    - - 0.9184433400788444
+      - 0.0
+      - 0.395552564224802
+      - -0.21283926557042324
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    left_motor_targets:
+      idx31_hand_l_thumb_roll_joint: -0.10426187659142447
+      idx32_hand_l_thumb_abad_joint: 0.31008229338795523
+      idx33_hand_l_thumb_mcp_joint: -0.6361199963960514
+      idx34_hand_l_thumb_pip_joint: -1.0168452513676673
+      idx36_hand_l_index_abad_joint: 0.0
+      idx37_hand_l_index_mcp_joint: 0.0
+      idx38_hand_l_index_pip_joint: 0.0
+      idx40_hand_l_middle_abad_joint: 0.0
+      idx41_hand_l_middle_mcp_joint: 0.0
+      idx42_hand_l_middle_pip_joint: 0.0
+      idx44_hand_l_ring_mcp_joint: 0.0
+      idx47_hand_l_pinky_mcp_joint: 0.0
+    ik:
+      ik_max_iterations: 1000
+      ik_collision_margin_m: 0.002
+      waist_orientation_cost:
+      - 0.0
+      - 0.0
+      - 0.0
+    support:
+      com_in_payload_m:
+      - 0.0
+      - 0.0
+      - 0.0
+      mass_kg: null
+      gravity_m_s2: 9.81
+      ray_step_m: 0.0025
+      contact_gap_tolerance_m: 0.003
+      minimum_upward_normal: 0.9
+    preposition_ik_extra_clearance_m: 0.0005
+    comparison_baseline: simulation/reference_inputs/travel_baseline
+    mode: cross_wrap
+    right_partial_drag_m: 0.19
+    left_closed_motor_targets:
+      idx31_hand_l_thumb_roll_joint: -0.10426187659142447
+      idx32_hand_l_thumb_abad_joint: 0.31008229338795523
+      idx33_hand_l_thumb_mcp_joint: -0.6361199963960514
+      idx34_hand_l_thumb_pip_joint: -1.0168452513676673
+      idx36_hand_l_index_abad_joint: 0.0
+      idx37_hand_l_index_mcp_joint: 0.20931956197989124
+      idx38_hand_l_index_pip_joint: 0.49312672269343255
+      idx40_hand_l_middle_abad_joint: 0.0
+      idx41_hand_l_middle_mcp_joint: 0.25
+      idx42_hand_l_middle_pip_joint: 0.5
+      idx44_hand_l_ring_mcp_joint: 0.3
+      idx47_hand_l_pinky_mcp_joint: 0.3
+    wrap_contact_gap_m: 0.004
+    wrap_depth_m: 0.01
+    endpoint_arm_seed:
+      idx21_arm_l_joint1: -0.1980242115585175
+      idx22_arm_l_joint2: -1.6776020710258253
+      idx23_arm_l_joint3: 1.1425310074009207
+      idx24_arm_l_joint4: -1.2999566759157615
+      idx25_arm_l_joint5: 3.0421401255129275
+      idx26_arm_l_joint6: 0.2539259734445171
+      idx27_arm_l_joint7: -1.1906251909780596
+      idx61_arm_r_joint1: 1.2253155956943542
+      idx62_arm_r_joint2: -1.1071875456789044
+      idx63_arm_r_joint3: -1.0226061138613525
+      idx64_arm_r_joint4: -2.4391308629529163
+      idx65_arm_r_joint5: 3.0518
+      idx66_arm_r_joint6: -0.9923
+      idx67_arm_r_joint7: -1.5159
+    waist_targets:
+      idx01_body_joint1: -0.8102330937413543
+      idx02_body_joint2: 2.2997509999397505
+      idx03_body_joint3: -1.3082218767081215
+      idx04_body_joint4: -0.3319081501416481
+      idx05_body_joint5: -0.04385583554683806
+    joint_limit_reserve_rad: 0.02
+    right_pre_motor_targets:
+      idx71_hand_r_thumb_roll_joint: 0.043336658834751476
+      idx72_hand_r_thumb_abad_joint: -0.19375829273111944
+      idx73_hand_r_thumb_mcp_joint: -0.03259979029396087
+      idx74_hand_r_thumb_pip_joint: -0.15264704339325086
+      idx76_hand_r_index_abad_joint: -0.17211400501995963
+      idx77_hand_r_index_mcp_joint: 0.0008428608552536995
+      idx78_hand_r_index_pip_joint: 0.3645143780444472
+      idx80_hand_r_middle_abad_joint: 0.2191329866467936
+      idx81_hand_r_middle_mcp_joint: 0.24719217955846534
+      idx82_hand_r_middle_pip_joint: 0.03703803444377222
+      idx84_hand_r_ring_mcp_joint: 0.16828218866553107
+      idx87_hand_r_pinky_mcp_joint: 0.16444548570498096
+    coordinated_waist_stages: []
+  landing_table_overlap_m: 0.01
+  table_station_backoff_m: 0.1
+  placement_push_with_base: true
+  support_hand_park_position_in_base_m:
+  - 0.25
+  - 0.4
+  - 0.9
+  post_place_retreat_m: 0.5
+  lowering_forward_m: -0.04
+  lowering_left_m: 0.02
+  joint_validity_step_rad: 0.0025
+  right_arm_push_delta_m:
+  - 0.06
+  - -0.04
+  - 0
+recording:
+  fps: 8
+  video_size:
+  - 960
+  - 540
+  comparison:
+    fps: 10
+    video_size:
+    - 960
+    - 480
+    duration_s: 12.0
+  msaa_samples: 0
+spread_source: simulation/outputs/grasp_spread_forward5

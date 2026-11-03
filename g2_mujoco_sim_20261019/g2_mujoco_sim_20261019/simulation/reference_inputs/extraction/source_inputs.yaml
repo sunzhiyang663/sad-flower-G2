@@ -1,0 +1,250 @@
+inputs:
+  T_base_battery: null
+  camera_observation:
+    camera_frame: assumed_head_color_optical_frame
+    capture_timestamp_ns: null
+    T_base_camera:
+    - - -5.313045532739373e-15
+      - -0.0009585862358233133
+      - 0.9999995405561086
+      - 0.04674870643955079
+    - - -1.0
+      - -3.783911429076098e-15
+      - -5.316675180866794e-15
+      - 3.4037767308927958e-15
+    - - 3.7890061822298285e-15
+      - -0.9999995405561087
+      - -0.0009585862358233134
+      - 1.1451691793552825
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    T_camera_battery:
+    - - -5.313045532739374e-15
+      - -1.0
+      - 3.7890061822298285e-15
+      - 0.24999999999999784
+    - - -0.0009585862358233132
+      - -3.783911429076097e-15
+      - -0.9999995405561086
+      - 0.25684156016268944
+    - - 0.9999995405561086
+      - -5.316675180866793e-15
+      - -0.0009585862358233132
+      - 0.8634978950736427
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+  height_reference:
+    point: bottom
+    height_m: 0.83
+    tolerance_m: 0.02
+    T_floor_base:
+    - - 1.0
+      - 0.0
+      - 0.0
+      - -0.35
+    - - 0.0
+      - 1.0
+      - 0.0
+      - 0.25
+    - - 0.0
+      - 0.0
+      - 1.0
+      - 0.05
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+  planning_only: true
+  allow_initial_front_overhang: true
+  hand_closure_scale:
+    right:
+      fingers: 0.9
+      thumb: 0.6
+  approach_strategy: fixed_left_first
+  coordination:
+    allow_waist: false
+    pull_mode: arm
+    max_retreat_m: 0.6
+  scene:
+    support:
+      T_base:
+      - - 1.0
+        - 0.0
+        - 0.0
+        - 1.0875
+      - - 0.0
+        - 1.0
+        - 0.0
+        - -0.25
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 0.77
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      size_m:
+      - 0.5
+      - 1.2
+      - 0.02
+    opening:
+      width_m: 1.1
+      height_m: 0.28
+    obstacles:
+    - name: rack_shelf_1
+      T_base:
+      - - 1.0
+        - 0.0
+        - 0.0
+        - 1.0875
+      - - 0.0
+        - 1.0
+        - 0.0
+        - -0.25
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 0.47
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      size_m:
+      - 0.5
+      - 1.2
+      - 0.02
+    - name: rack_shelf_3
+      T_base:
+      - - 1.0
+        - 0.0
+        - 0.0
+        - 1.0875
+      - - 0.0
+        - 1.0
+        - 0.0
+        - -0.25
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 1.07
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      size_m:
+      - 0.5
+      - 1.2
+      - 0.02
+    - name: rack_left_panel
+      T_base:
+      - - 1.0
+        - 0.0
+        - 0.0
+        - 1.0875
+      - - 0.0
+        - 1.0
+        - 0.0
+        - 0.32499999999999996
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 0.55
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      size_m:
+      - 0.5
+      - 0.05
+      - 1.2
+    - name: rack_right_panel
+      T_base:
+      - - 1.0
+        - 0.0
+        - 0.0
+        - 1.0875
+      - - 0.0
+        - 1.0
+        - 0.0
+        - -0.825
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 0.55
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      size_m:
+      - 0.5
+      - 0.05
+      - 1.2
+  initial_joints:
+    idx01_body_joint1: -0.697946745200961
+    idx02_body_joint2: 1.3945514694662322
+    idx03_body_joint3: -0.6975633106479007
+    idx04_body_joint4: 3.789006182229832e-15
+    idx05_body_joint5: 5.3130455327393714e-15
+    idx11_head_joint1: 0.0
+    idx12_head_joint2: 0.0
+    idx13_head_joint3: 0.0
+    idx21_arm_l_joint1: -0.03423073350948936
+    idx22_arm_l_joint2: -1.774218275127483
+    idx23_arm_l_joint3: 0.7780412257056093
+    idx24_arm_l_joint4: -1.565627429192908
+    idx25_arm_l_joint5: 3.033505610397586
+    idx26_arm_l_joint6: -0.03436385339569726
+    idx27_arm_l_joint7: -0.9844440614409657
+    idx61_arm_r_joint1: 0.9967657410795928
+    idx62_arm_r_joint2: -1.6718800531320328
+    idx63_arm_r_joint3: -1.068824802446438
+    idx64_arm_r_joint4: -1.7177702703337958
+    idx65_arm_r_joint5: -3.012496702808599
+    idx66_arm_r_joint6: -0.4808437534654789
+    idx67_arm_r_joint7: -1.5236016572914983
+    idx31_hand_l_thumb_roll_joint: -0.21744121910566583
+    idx32_hand_l_thumb_abad_joint: 0.3394795254542093
+    idx33_hand_l_thumb_mcp_joint: -0.14617907402929922
+    idx34_hand_l_thumb_pip_joint: -0.2505875149294011
+    idx36_hand_l_index_abad_joint: -0.03625471870663395
+    idx37_hand_l_index_mcp_joint: 0.3106195778429973
+    idx38_hand_l_index_pip_joint: 0.358167317986313
+    idx40_hand_l_middle_abad_joint: -0.025473145440579294
+    idx41_hand_l_middle_mcp_joint: 0.3808537729069485
+    idx42_hand_l_middle_pip_joint: 0.34198861229901467
+    idx44_hand_l_ring_mcp_joint: 0.34479953989670464
+    idx47_hand_l_pinky_mcp_joint: 0.33027957684743425
+    idx71_hand_r_thumb_roll_joint: 0.6149398163500608
+    idx72_hand_r_thumb_abad_joint: -0.8249018974426562
+    idx73_hand_r_thumb_mcp_joint: 0.0
+    idx74_hand_r_thumb_pip_joint: 0.0
+    idx76_hand_r_index_abad_joint: 0.19817875821314368
+    idx77_hand_r_index_mcp_joint: 0.0
+    idx78_hand_r_index_pip_joint: 0.0
+    idx80_hand_r_middle_abad_joint: 0.053592714186335606
+    idx81_hand_r_middle_mcp_joint: 0.0
+    idx82_hand_r_middle_pip_joint: 0.0
+    idx84_hand_r_ring_mcp_joint: 0.0
+    idx87_hand_r_pinky_mcp_joint: 0.0
+  waist_target_joints:
+    idx01_body_joint1: -1.05
+    idx02_body_joint2: 2.4
+    idx03_body_joint3: -1.35
+    idx04_body_joint4: 0.0
+    idx05_body_joint5: 0.0
+  left_support_front_joints:
+    idx21_arm_l_joint1: -0.03423073350948936
+    idx22_arm_l_joint2: -1.774218275127483
+    idx23_arm_l_joint3: 0.7780412257056093
+    idx24_arm_l_joint4: -1.565627429192908
+    idx25_arm_l_joint5: 3.033505610397586
+    idx26_arm_l_joint6: -0.03436385339569726
+    idx27_arm_l_joint7: -0.9844440614409657
+  upper_body_prepared: false
+  lift_height_m: 0.1
+  stop_after: lift

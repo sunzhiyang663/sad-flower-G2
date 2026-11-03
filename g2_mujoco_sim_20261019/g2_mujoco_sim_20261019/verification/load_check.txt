@@ -1,0 +1,5 @@
+{"passed": true, "goal": 1, "states": 2569, "duration_s": 116.46288406912956, "nq": 68, "ngeom": 11990, "hardware_io": false}
+{"passed": true, "goal": 5, "states": 2452, "duration_s": 112.95458415703403, "nq": 68, "ngeom": 11990, "hardware_io": false}
+PASS: URDF/meshes/SRDF, 46 controlled joints, editable MJCF, G1/G5 replay; no hardware IO.
+
+本记录在文件清单生成前完成。ZIP生成后另逐文件校验MANIFEST.sha256并检查CRC。
