@@ -61,14 +61,30 @@ def main():
         heading=poses[:-1,2]+dyaw/2
         lateral=np.sum(delta*np.c_[-np.sin(heading),np.cos(heading)],axis=1)
         max_base_step=float(np.linalg.norm(delta,axis=1).max());max_lateral=float(np.abs(lateral).max())
-        if task.get('spread_source') and (max_base_step>.025 or max_lateral>1e-7):
+        if task.get('spread_source') and task['vehicle'].get('planner','ompl')=='ompl' and (max_base_step>.025 or max_lateral>1e-7):
             failures.append(dict(category='discontinuous_or_lateral_base_motion',max_step_m=max_base_step,max_lateral_m=max_lateral))
         np.savez_compressed(out/f'G{goal}_full_clearances.npz',minimum_distances=minima)
         report[str(goal)]=dict(samples=len(sequence),minimum_by_category_m=minima.min(axis=0).tolist(),
             empty_robot_shell_minimum_m=empty_shell_minimum,max_base_step_m=max_base_step,max_lateral_step_m=max_lateral,failures=failures,passed=not failures)
         print('G',goal,'failures',len(failures),failures[:2],flush=True)
     vehicle=json.loads((out/'vehicle_routes.json').read_text())
-    kinematic=all(v['max_lateral_step_m']<1e-7 and v['max_curvature_per_m']<=1.001/task['vehicle']['turning_radius_m'] for v in vehicle.values())
+    planner=task['vehicle'].get('planner','ompl')
+    timed_audits={}
+    expected_routes=[f'G{task["start_guide_id"]}_G4']+[f'G4_G{g}' for g in task['goal_guide_ids']]
+    if planner=='flow':
+        from simulation.flow.navigation_bridge import audit_saved_route
+        for name in expected_routes:
+            try:
+                with np.load(out/f'route_{name}.npz',allow_pickle=False) as record:
+                    if str(record['planner'])!='flow':raise ValueError('Planner metadata mismatch')
+                    timed_audits[name]=audit_saved_route(record,task['vehicle'])
+            except (KeyError,ValueError,OSError) as exc:
+                timed_audits[name]=dict(passed=False,reason=str(exc))
+        kinematic=all(v['passed'] for v in timed_audits.values())
+    elif planner=='ompl':
+        kinematic=set(vehicle)==set(expected_routes) and all(v['max_lateral_step_m']<1e-7 and v['max_curvature_per_m']<=1.001/task['vehicle']['turning_radius_m'] for v in vehicle.values())
+    else:
+        raise ValueError(f'Unknown planner: {planner}')
     unchanged=before==collision_hash()
     preposition_audit=json.loads((out/'preposition_audit.json').read_text()) if task['motion'].get('preposition') else None
     passed=(preposition_audit is None or preposition_audit['passed']) and all(v['passed'] for v in report.values()) and kinematic and unchanged and all(s['missed']==0 and s['environment_removed']==0 for s in lidar)
@@ -77,6 +93,7 @@ def main():
         fresh=all(record['source_sha256']==hashlib.sha256((out/(name+'.npz')).read_bytes()).hexdigest() for name,record in local_audit['segments'].items())
         passed=passed and local_audit['passed'] and fresh and sum(s['payload_points'] for s in lidar)>0
     (out/'validation.json').write_text(json.dumps(dict(passed=passed,routes=report,vehicle=vehicle,
+        planner=planner,timed_route_audits=timed_audits,
         kinematic_constraints_passed=kinematic,lidar=lidar,preposition_audit=preposition_audit,
         local_motion_audit=local_audit,
         perception_filter_does_not_modify_collision_geometry=unchanged,collision_geometry_sha256=before,

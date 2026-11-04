@@ -7,7 +7,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import mujoco
 import numpy as np
-from ompl import base as ob, geometric as og, util as ou
 from scipy.ndimage import distance_transform_edt
 from scipy.spatial.transform import Rotation
 import yaml
@@ -17,6 +16,7 @@ from simulation.map9_route_preview import Clearance, occupied_footprint
 
 
 def route(start, goal, valid, cfg, bounds, forward_only=False):
+    from ompl import base as ob, geometric as og
     space = (ob.DubinsStateSpace(cfg['turning_radius_m']) if forward_only
              else ob.ReedsSheppStateSpace(cfg['turning_radius_m']))
     limits = ob.RealVectorBounds(2)
@@ -67,7 +67,7 @@ def route(start, goal, valid, cfg, bounds, forward_only=False):
 
 
 def plan_base_path(start, goal, valid, cfg, bounds,
-                   forward_only=False, planner='ompl'):
+                   forward_only=False, planner='ompl', loaded=False):
     """Return an (N, 3) array of map-frame poses [x_m, y_m, yaw_rad].
 
     Keep scene loading, collision checking and route export outside the planner.
@@ -75,16 +75,30 @@ def plan_base_path(start, goal, valid, cfg, bounds,
     """
     if planner == 'ompl':
         return route(start, goal, valid, cfg, bounds, forward_only=forward_only)
-    raise ValueError(f'Unsupported planner: {planner!r}; available: ompl')
+    if planner == 'flow':
+        return plan_base_trajectory(start,goal,valid,cfg,bounds,forward_only,planner,loaded)['poses']
+    raise ValueError(f'Unsupported planner: {planner!r}; available: ompl, flow')
+
+
+def plan_base_trajectory(start,goal,valid,cfg,bounds,forward_only=False,planner='ompl',loaded=False):
+    if planner=='flow':
+        from simulation.flow.navigation_bridge import plan_flow
+        return plan_flow(start,goal,valid,cfg,bounds,loaded)
+    if planner=='ompl':
+        return dict(poses=route(start,goal,valid,cfg,bounds,forward_only),planner='ompl',diagnostics={},
+                    actions=None,timestamps=None,dt=None)
+    raise ValueError(f'Unsupported planner: {planner!r}')
 
 
 def main():
     cfg = yaml.safe_load((ROOT/'simulation/map9.yaml').read_text())
     task = load_task()
     planner = task['vehicle'].get('planner', 'ompl')
-    if planner != 'ompl':
-        raise ValueError(f'Unsupported planner: {planner!r}; available: ompl')
-    ou.RNG.setSeed(task['vehicle']['random_seed'])
+    if planner not in ('ompl','flow'):
+        raise ValueError(f'Unsupported planner: {planner!r}')
+    if planner=='ompl':
+        from ompl import util as ou
+        ou.RNG.setSeed(task['vehicle']['random_seed'])
     out = path(task['output']); out.mkdir(parents=True, exist_ok=True)
     source = path(cfg['output'])
     meta = json.loads((path(cfg['snapshot'])/'map.json').read_text())
@@ -128,16 +142,27 @@ def main():
         data = dict(saved);data['qpos'] = pickup['qpos'][-1] if loaded and pickup is not None else saved['qpos'] if loaded else default_q
         if loaded and pickup is not None:data['T_base_payload']=pickup['payload'][-1]
         checker = Clearance(model,data,cfg['base_height_m'],.1)
+        shell_world=None
+        if not loaded and pickup is not None:
+            station_transform=pose(points[4],cfg['base_height_m'])
+            if 'base_offsets' in pickup:station_transform=station_transform@pickup['base_offsets'][0]
+            shell_world=station_transform@pickup['payload'][0]
         checked = 0
         def valid(p):
             nonlocal checked
             x,y = np.floor((p[:2]-origin)/r).astype(int)
             if not (0 <= y < grid.shape[0] and 0 <= x < grid.shape[1]) or grid[y,x] != 0: return False
-            if distance[y,x] < .52 and occupied_footprint(p,footprint,.01,r,origin,grid):return False
+            if (planner=='flow' or distance[y,x] < .52) and occupied_footprint(p,footprint,.01,r,origin,grid):return False
             # Payload excluded for empty traversal; environment tests remain 3D.
             values,_ = checker.check(p,include_payload=loaded)
             checked += 1
-            return values.min() >= task['motion']['min_navigation_clearance_m']
+            minimum=float(values.min())
+            if planner=='flow' and shell_world is not None:
+                checker.data.mocap_pos[0]=shell_world[:3,3]
+                checker.data.mocap_quat[0]=Rotation.from_matrix(shell_world[:3,:3]).as_quat(scalar_first=True)
+                mujoco.mj_forward(model,checker.data)
+                minimum=min(minimum,min(float(mujoco.mj_geomDistance(model,checker.data,g,checker.payload,.1,None)) for g in checker.robot))
+            return minimum >= task['motion']['min_navigation_clearance_m']
         def p2(k):
             T = pose(points[k]);return np.r_[T[:2,3],Rotation.from_matrix(T[:3,:3]).as_euler('xyz')[2]]
         def pickup_station(index):
@@ -148,14 +173,16 @@ def main():
         if loaded:
             exit_pose=p2(a).copy();exit_pose[:2]+=task['vehicle']['rack_exit_map_offset_m']
             exit_pose[2]=task['vehicle']['rack_exit_yaw_rad']
-            first = plan_base_path(pickup_station(-1),exit_pose,valid,task['vehicle'],cfg['work_bounds_xy_m'],planner=planner)
+            first = plan_base_trajectory(pickup_station(-1),exit_pose,valid,task['vehicle'],cfg['work_bounds_xy_m'],planner=planner,loaded=loaded)
             destination=p2(b)
             if task['motion'].get('preposition',{}).get('mode')=='cross_wrap':
                 destination[:2]-=task['motion']['table_station_backoff_m']*np.array([np.cos(destination[2]),np.sin(destination[2])])
-            onward = plan_base_path(exit_pose,destination,valid,task['vehicle'],cfg['work_bounds_xy_m'],forward_only=True,planner=planner)
-            poses = np.vstack([first[:-1],onward])
+            onward = plan_base_trajectory(exit_pose,destination,valid,task['vehicle'],cfg['work_bounds_xy_m'],forward_only=True,planner=planner,loaded=loaded)
+            from simulation.flow.navigation_bridge import join
+            trajectory = join(first,onward)
         else:
-            poses = plan_base_path(p2(a),pickup_station(0),valid,task['vehicle'],cfg['work_bounds_xy_m'],forward_only=True,planner=planner)
+            trajectory = plan_base_trajectory(p2(a),pickup_station(0),valid,task['vehicle'],cfg['work_bounds_xy_m'],forward_only=True,planner=planner,loaded=loaded)
+        poses = trajectory['poses']
         if not all(valid(p) for p in poses):raise RuntimeError('Final vehicle samples rejected')
         ds = np.linalg.norm(np.diff(poses[:,:2],axis=0),axis=1)
         dyaw = np.arctan2(np.sin(np.diff(poses[:,2])),np.cos(np.diff(poses[:,2])))
@@ -163,12 +190,18 @@ def main():
         delta = np.diff(poses[:,:2],axis=0)
         longitudinal = np.sum(delta*np.c_[np.cos(heading),np.sin(heading)],axis=1)
         lateral = np.sum(delta*np.c_[-np.sin(heading),np.cos(heading)],axis=1)
+        extra = dict(planner=planner)
+        if planner=='flow':
+            extra.update(actions=trajectory['actions'],timestamps=trajectory['timestamps'],dt=trajectory['dt'],
+                expected_start=pickup_station(-1) if loaded else p2(a),
+                expected_goal=destination if loaded else pickup_station(0))
         np.savez_compressed(out/f'route_G{a}_G{b}.npz',poses=poses,ds=ds,dyaw=dyaw,
-                            longitudinal=longitudinal,lateral=lateral,loaded=loaded)
+                            longitudinal=longitudinal,lateral=lateral,loaded=loaded,**extra)
         reports[f'G{a}_G{b}'] = dict(samples=len(poses),length_m=float(ds.sum()),validity_checks=checked,
             max_lateral_step_m=float(np.abs(lateral).max()),
-            max_curvature_per_m=float(np.max(np.abs(dyaw[ds>1e-6])/ds[ds>1e-6])),
+            max_curvature_per_m=float(np.max(np.abs(dyaw[ds>1e-6])/ds[ds>1e-6])) if np.any(ds>1e-6) else 0.,
             reverse_distance_m=float(ds[longitudinal<0].sum()),loaded=loaded)
+        reports[f'G{a}_G{b}'].update(planner=planner,diagnostics=trajectory['diagnostics'])
         (out/'vehicle_routes.json').write_text(json.dumps(reports,indent=2))
         print(reports[f'G{a}_G{b}'],flush=True)
 

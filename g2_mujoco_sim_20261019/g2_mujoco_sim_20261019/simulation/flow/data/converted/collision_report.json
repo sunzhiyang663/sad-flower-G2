@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "routes": {
+    "route_G4_G1.npz": {
+      "passed": true,
+      "loaded": true,
+      "samples": 1292,
+      "minimum_by_category_m": [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "stationary_shell_minimum_m": null,
+      "threshold_m": 0.003,
+      "failure_count": 0,
+      "failures": [],
+      "source_sha256": "01ff1e3f72982de2821eb19e031538188036b0f035589dccbc5cdb6664a26e37"
+    },
+    "route_G4_G5.npz": {
+      "passed": true,
+      "loaded": true,
+      "samples": 1035,
+      "minimum_by_category_m": [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "stationary_shell_minimum_m": null,
+      "threshold_m": 0.003,
+      "failure_count": 0,
+      "failures": [],
+      "source_sha256": "6a0b37b4eb2ffeb9aa2b2e0f0e959105c04df772f0c4c83d8d12000d6319aa57"
+    },
+    "route_G6_G4.npz": {
+      "passed": true,
+      "loaded": false,
+      "samples": 412,
+      "minimum_by_category_m": [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "stationary_shell_minimum_m": 0.1,
+      "threshold_m": 0.003,
+      "failure_count": 0,
+      "failures": [],
+      "source_sha256": "68f44a7d328224e52006d5c8705ae388bea6651f20db8a4934ba124292e69ca5"
+    }
+  },
+  "scene": "C:\\Users\\zhiyangsun\\Desktop\\sad-flow\\g2\\g2_mujoco_sim_20261019\\g2_mujoco_sim_20261019\\scenes\\map9_current.xml",
+  "scene_sha256": "c0ba1fa82d7ccc8cb91520b18af90529400c4680fc332c45ddf3f3a44c812cc7",
+  "mujoco_version": "3.17.0",
+  "translation_step_m": 0.01,
+  "angle_step_rad": 0.02,
+  "continuous_collision_detection": false,
+  "dynamics_validated": false
+}

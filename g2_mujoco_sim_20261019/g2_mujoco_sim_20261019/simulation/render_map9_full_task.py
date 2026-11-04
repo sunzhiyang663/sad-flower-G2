@@ -16,6 +16,7 @@ import yaml
 from simulation.full_task_config import load_task
 from simulation.build_map9_scene import path,pose
 from simulation.map9_route_preview import Clearance
+from simulation.flow.route_timing import segment_durations
 
 NAMES={**STAGE_NAMES,'default':'默认全身关节姿态','prepare_hands':'手指准备',
     'base_retreat':'放置后底盘直退，壳体留在台面','reset_hands':'退离台面后手指复位','reset_arms':'双臂依次复位','reset_body':'腰颈恢复默认姿态',
@@ -43,11 +44,11 @@ def make_sequence(goal,cfg,task,out,meta):
         timestamps.append(duration);timeline.append((p.copy(),q.copy(),T.copy(),label,attached));duration+=seconds
     def nav(record,q,label,attached):
         poses=record['poses'];longitudinal=record['longitudinal'];last_sign=0
+        durations=segment_durations(record,task['vehicle'])
         for k,p in enumerate(poses):
             sign=1 if k==len(poses)-1 or longitudinal[k]>=0 else -1
             speed=task['vehicle']['speed_m_s'] if sign>0 else task['vehicle']['reverse_speed_m_s']
-            seconds=(max(float(record['ds'][k])/speed,abs(float(record['dyaw'][k]))/task['vehicle']['max_yaw_speed_rad_s']) if k<len(poses)-1 else 1/fps)
-            if last_sign and sign!=last_sign:seconds+=task['vehicle']['switch_gear_hold_s']
+            seconds=float(durations[k]) if k<len(poses)-1 else 1/fps
             last_sign=sign
             Tb=np.eye(4);Tb[:3,:3]=Rotation.from_euler('z',p[2]).as_matrix();Tb[:3,3]=[*p[:2],cfg['base_height_m']]
             T=pickup['payload'][-1] if attached else np.linalg.inv(Tb)@shell_world

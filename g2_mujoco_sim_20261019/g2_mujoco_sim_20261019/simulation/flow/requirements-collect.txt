@@ -1,0 +1,6 @@
+# Linux, preferably Python 3.11. Keep the environment unchanged while resuming.
+numpy>=2.0
+scipy>=1.15
+PyYAML>=6.0
+mujoco>=3.14
+ompl==2.0.1

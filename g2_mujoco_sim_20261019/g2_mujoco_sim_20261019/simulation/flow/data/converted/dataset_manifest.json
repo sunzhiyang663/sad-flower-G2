@@ -1,0 +1,20 @@
+{
+  "episodes": [
+    {
+      "sha256": "01ff1e3f72982de2821eb19e031538188036b0f035589dccbc5cdb6664a26e37",
+      "split": "train",
+      "file": "route_G4_G1.npz"
+    },
+    {
+      "sha256": "6a0b37b4eb2ffeb9aa2b2e0f0e959105c04df772f0c4c83d8d12000d6319aa57",
+      "split": "validation",
+      "file": "route_G4_G5.npz"
+    },
+    {
+      "sha256": "68f44a7d328224e52006d5c8705ae388bea6651f20db8a4934ba124292e69ca5",
+      "split": "test",
+      "file": "route_G6_G4.npz"
+    }
+  ],
+  "purpose": "Interface smoke test only; three routes are insufficient for generalization evaluation"
+}

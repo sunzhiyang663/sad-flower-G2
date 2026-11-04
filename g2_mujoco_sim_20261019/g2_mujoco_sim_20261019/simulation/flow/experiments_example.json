@@ -1,0 +1,18 @@
+{
+  "data": "simulation/flow/data/experts_empty",
+  "seeds": [0, 1, 2],
+  "device": "auto",
+  "cpu_threads": 4,
+  "plots": true,
+  "splits": ["validation", "test"],
+  "train": {
+    "steps": 20000,
+    "horizon": 64,
+    "width": 128,
+    "depth": 4,
+    "batch_size": 32,
+    "overfit_windows": 0,
+    "log_every": 500
+  },
+  "evaluate": {"max_windows": 100, "stride": 64, "candidates": 4, "steps": 100}
+}

@@ -1,0 +1,3 @@
+# Install a PyTorch build compatible with the server GPU/driver separately if needed.
+numpy>=2.0
+torch>=2.6

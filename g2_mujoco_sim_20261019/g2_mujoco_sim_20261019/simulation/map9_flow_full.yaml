@@ -1,0 +1,12 @@
+extends: simulation/map9_spread_forward5_full.yaml
+output: simulation/outputs/map9_flow_full
+vehicle:
+  planner: flow
+  flow:
+    empty_checkpoint: simulation/flow/outputs/fm_empty_long/best.pt
+    loaded_checkpoint: simulation/flow/outputs/fm_loaded_long/best.pt
+    candidates: 16
+    ode_steps: 100
+    device: auto
+    position_tolerance: 0.02
+    angle_tolerance: 0.02

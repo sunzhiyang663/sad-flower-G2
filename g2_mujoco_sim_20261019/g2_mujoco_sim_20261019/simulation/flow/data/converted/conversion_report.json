@@ -1,0 +1,35 @@
+{
+  "route_G4_G1.npz": {
+    "source": "C:\\Users\\zhiyangsun\\Desktop\\sad-flow\\g2\\g2_mujoco_sim_20261019\\g2_mujoco_sim_20261019\\simulation\\outputs\\map9_spread_forward5_full\\route_G4_G1.npz",
+    "states": 292,
+    "physical_dt_s": 0.1,
+    "duration_s": 29.1,
+    "max_translation_speed_m_s": 0.4499524851318052,
+    "max_yaw_speed_rad_s": 0.44995248513178154,
+    "max_euler_residual": 6.938893903907228e-18,
+    "collision_checked": false,
+    "note": "Euler residual is by construction; independent collision and execution checks remain required."
+  },
+  "route_G4_G5.npz": {
+    "source": "C:\\Users\\zhiyangsun\\Desktop\\sad-flow\\g2\\g2_mujoco_sim_20261019\\g2_mujoco_sim_20261019\\simulation\\outputs\\map9_spread_forward5_full\\route_G4_G5.npz",
+    "states": 257,
+    "physical_dt_s": 0.1,
+    "duration_s": 25.6,
+    "max_translation_speed_m_s": 0.44980009206611377,
+    "max_yaw_speed_rad_s": 0.44980009206610383,
+    "max_euler_residual": 6.938893903907228e-18,
+    "collision_checked": false,
+    "note": "Euler residual is by construction; independent collision and execution checks remain required."
+  },
+  "route_G6_G4.npz": {
+    "source": "C:\\Users\\zhiyangsun\\Desktop\\sad-flow\\g2\\g2_mujoco_sim_20261019\\g2_mujoco_sim_20261019\\simulation\\outputs\\map9_spread_forward5_full\\route_G6_G4.npz",
+    "states": 103,
+    "physical_dt_s": 0.1,
+    "duration_s": 10.200000000000001,
+    "max_translation_speed_m_s": 0.44714474153698514,
+    "max_yaw_speed_rad_s": 0.44714474153697337,
+    "max_euler_residual": 6.938893903907228e-18,
+    "collision_checked": false,
+    "note": "Euler residual is by construction; independent collision and execution checks remain required."
+  }
+}
